@@ -53,7 +53,8 @@ app.post('/api/register', async (req, res) => {
         await pool.query('INSERT INTO users (name, email, password_hash, role) VALUES (?, ?, ?, ?)', [name, email, hash, userRole]);
         res.status(201).json({ message: 'User registered successfully' });
     } catch (err) {
-        res.status(500).json({ error: 'Database error' });
+        console.error('REGISTER ERROR:', err.message, err.code);
+        res.status(500).json({ error: 'Database error', detail: err.message });
     }
 });
 
@@ -71,7 +72,8 @@ app.post('/api/login', async (req, res) => {
         const token = jwt.sign({ userId: user.id, name: user.name, role: user.role }, JWT_SECRET, { expiresIn: '1h' });
         res.json({ message: 'Login successful', token, name: user.name, role: user.role });
     } catch (err) {
-        res.status(500).json({ error: 'Database error' });
+        console.error('LOGIN ERROR:', err.message, err.code);
+        res.status(500).json({ error: 'Database error', detail: err.message });
     }
 });
 
