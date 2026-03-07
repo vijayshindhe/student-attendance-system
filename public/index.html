@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance System - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-bg">
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div class="form-box login-box" id="loginBox">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Log in to manage your attendance</p>
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="email" id="loginEmail" required placeholder=" ">
+                    <label for="loginEmail">Email Address</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="loginPassword" required placeholder=" ">
+                    <label for="loginPassword">Password</label>
+                </div>
+                <button type="submit" class="btn primary-btn">Log In</button>
+            </form>
+            <p class="switch-text">New student? <a href="#" id="showRegister">Create an account</a></p>
+            <div id="loginError" class="error-msg"></div>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-box register-box hidden" id="registerBox">
+            <h2>Create Account</h2>
+            <p class="subtitle">Join to track your attendance</p>
+            <form id="registerForm">
+                <div class="input-group">
+                    <input type="text" id="regName" required placeholder=" ">
+                    <label for="regName">Full Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="regEmail" required placeholder=" ">
+                    <label for="regEmail">Email Address</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="regPassword" required placeholder=" ">
+                    <label for="regPassword">Password</label>
+                </div>
+                <div class="input-group">
+                    <select id="regRole" required class="custom-select">
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher (Admin)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn primary-btn">Register</button>
+            </form>
+            <p class="switch-text">Already have an account? <a href="#" id="showLogin">Log In</a></p>
+            <div id="registerError" class="error-msg"></div>
+            <div id="registerSuccess" class="success-msg"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
